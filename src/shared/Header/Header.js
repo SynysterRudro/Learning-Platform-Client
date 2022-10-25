@@ -15,18 +15,32 @@ const Header = () => {
                     </Link>
                     <ul className="items-stretch hidden space-x-3 lg:flex">
                         <li className="flex">
-                            <Link rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent dark:text-violet-400 dark:border-violet-400">Link</Link>
+                            <Link rel="noopener noreferrer" to='/courses' className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent dark:text-violet-400 dark:border-violet-400">Courses</Link>
                         </li>
                         <li className="flex">
-                            <Link rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Link</Link>
+                            <Link rel="noopener noreferrer" to='/faq' className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">FAQ</Link>
                         </li>
                         <li className="flex">
-                            <Link rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Link</Link>
+                            <Link rel="noopener noreferrer" to='blogs' className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Blogs</Link>
                         </li>
                         <li className="flex">
-                            <Link rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Link</Link>
+                            <Link rel="noopener noreferrer" to='/about' className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">About us</Link>
                         </li>
                     </ul>
+
+                    <div className='py-5'>
+                        <span className='p-2 rounded mx-2 text-black bg-violet-400 '>Dark Mode</span>
+                        <label for="Toggle1" className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100">
+                            <span>Off</span>
+                            <span className="relative">
+                                <input id="Toggle1" type="checkbox" className="hidden peer" />
+                                <div className="w-10 h-6 rounded-full shadow-inner dark:bg-gray-400 peer-checked:dark:bg-violet-400"></div>
+                                <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-800"></div>
+                            </span>
+                            <span>On</span>
+                        </label>
+                    </div>
+
                     <div className="items-center flex-shrink-0 hidden lg:flex">
                         <Link to='/login'><button className="self-center px-8 py-3 rounded">Sign in</button></Link>
                         <Link to='/register'><button className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900">Sign up</button></Link>
