@@ -1,9 +1,17 @@
 
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGoogle, FaGithub } from "react-icons/fa";
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
+
+const googleProvider = new GoogleAuthProvider();
+
 
 const Login = () => {
+
+    const { provideLogin } = useContext(AuthContext);
+
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
@@ -11,6 +19,11 @@ const Login = () => {
         const password = form.passoword.value;
         console.log(email, password);
     }
+
+    const handleGoogleSignin = () => {
+        provideLogin(googleProvider);
+    }
+
 
     return (
         <section className="p-6 dark:bg-gray-800 dark:text-gray-100">
@@ -38,7 +51,7 @@ const Login = () => {
                 </div>
                 <div>
                     <p>Or login using</p>
-                    <button type="button" className="px-8 my-2 py-3 font-semibold border rounded hover:bg-slate-500 dark:border-gray-100 dark:text-gray-100"><FaGoogle></FaGoogle> Google</button>
+                    <button onClick={handleGoogleSignin} type="button" className="px-8 my-2 py-3 font-semibold border rounded hover:bg-slate-500 dark:border-gray-100 dark:text-gray-100"><FaGoogle></FaGoogle> Google</button>
                     <br />
                     <button type="button" className="px-8 py-3 font-semibold border rounded hover:bg-slate-500 dark:border-gray-100 dark:text-gray-100"><FaGithub></FaGithub>GitHub</button>
 

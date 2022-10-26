@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { user } = useContext(AuthContext);
     return (
         <div>
             <div className="bg-gray-900 mb-48 lg:mb-0">
