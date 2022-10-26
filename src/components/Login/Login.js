@@ -1,6 +1,6 @@
 
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
@@ -10,22 +10,28 @@ const githubProvider = new GithubAuthProvider();
 
 
 const Login = () => {
+    const navigate = useNavigate();
 
-    const { provideLogin, githubLogin } = useContext(AuthContext);
+    const { provideLogin, githubLogin, emailPasswordLogIn } = useContext(AuthContext);
 
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.passoword.value;
+        navigate('/');
         console.log(email, password);
+
     }
+
+
 
     const handleGithubSignIn = () => {
         githubLogin(githubProvider)
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate('/');
             })
             .catch(error => console.error(error))
     }
@@ -35,6 +41,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate('/');
             })
             .catch(error => console.message(error))
     }
@@ -60,7 +67,7 @@ const Login = () => {
                             <input type="password" name="passoword" className="w-full rounded-md focus:ring focus:ring-violet-400 p-2 dark:border-gray-700 text-black" placeholder='your password' />
                         </div>
 
-                        <button type="submit" className="w-full py-2 font-semibold rounded dark:bg-violet-400 dark:text-gray-900">Sign In</button>
+                        <button type="submit" className="w-full py-2 font-semibold rounded dark:bg-violet-400 hover:bg-violet-300 dark:text-gray-900">Sign In</button>
                         <p>Need an account?<Link to='/register' className='text-blue-800 underline'>Register</Link> instead</p>
                     </form>
                 </div>

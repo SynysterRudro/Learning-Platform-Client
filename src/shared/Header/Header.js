@@ -1,11 +1,19 @@
+import { Button } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+
+
+    const handleLogout = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
     return (
         <div>
             <div className="bg-gray-900 mb-48 lg:mb-0">
@@ -16,9 +24,10 @@ const Header = () => {
                             <Link className='text-white' to='/'>
                                 {user?.photoURL ?
                                     <img className='rounded-full h-14' src={user?.photoURL} alt="" /> :
-                                    <>None</>
+                                    <></>
                                 }
                                 {user?.displayName}
+
                             </Link>
                             <li>
                                 <Link
@@ -76,40 +85,20 @@ const Header = () => {
                                 CSE Ravens
                             </span>
                         </Link>
-                        <ul className="flex items-center hidden ml-auto space-x-8 lg:flex">
 
-                            <li>
-                                <Link
-                                    to='/login'
-                                    aria-label="Sign in"
-                                    title="Sign in"
-                                    className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
-                                >
-                                    Sign in
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    to='/register'
-                                    className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
-                                    aria-label="Sign up"
-                                    title="Sign up"
-                                >
-                                    Sign up
-                                </Link>
-                            </li>
-                            <div>
-                                <label htmlFor="Toggle1" className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100">
 
-                                    <span>Dark Mode</span>
-                                    <span className="relative">
-                                        <input id="Toggle1" type="checkbox" className="hidden peer" />
-                                        <div className="w-10 h-6 rounded-full shadow-inner dark:bg-gray-400 peer-checked:dark:bg-violet-400"></div>
-                                        <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-800"></div>
-                                    </span>
-                                </label>
-                            </div>
-                        </ul>
+                        <div >
+                            {user?.uid ?
+                                <>
+                                    <Button className='bg-teal-600 hover:bg-teal-500 text-white p-2 rounded-md mx-2' onClick={handleLogout}>Logout</Button>
+                                </>
+                                :
+                                <>
+                                    <Link className='bg-teal-600 hover:bg-teal-500 text-white p-2 rounded-md mx-2' to='/login'><Button>Login</Button></Link>
+                                    <Link className='bg-teal-600 p-2 hover:bg-teal-500 text-white rounded-md text-2l' to='/register'><Button>Register</Button></Link>
+                                </>
+                            }
+                        </div>
 
 
 
