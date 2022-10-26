@@ -24,7 +24,7 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                navigate('/login');
+                navigate('/');
             })
             .catch(error => console.error(error))
     }

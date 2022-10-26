@@ -19,9 +19,20 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.passoword.value;
-        navigate('/');
-        console.log(email, password);
 
+        console.log(email, password);
+        handleEmailPasswordLogin(email, password);
+
+    }
+
+    const handleEmailPasswordLogin = (email, password) => {
+        emailPasswordLogIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigate('/');
+            })
+            .catch(error => console.error(error))
     }
 
 

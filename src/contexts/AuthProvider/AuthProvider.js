@@ -21,7 +21,7 @@ const AuthProvider = ({ children }) => {
     }
 
     const emailPasswordLogIn = (email, password) => {
-        return signInWithEmailAndPassword(email, password);
+        return signInWithEmailAndPassword(auth, email, password);
     }
 
     useEffect(() => {
