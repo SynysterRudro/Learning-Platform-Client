@@ -3,14 +3,15 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const googleProvider = new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider();
 
 
 const Login = () => {
 
-    const { provideLogin } = useContext(AuthContext);
+    const { provideLogin, githubLogin } = useContext(AuthContext);
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -20,8 +21,22 @@ const Login = () => {
         console.log(email, password);
     }
 
+    const handleGithubSignIn = () => {
+        githubLogin(githubProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error))
+    }
+
     const handleGoogleSignin = () => {
-        provideLogin(googleProvider);
+        provideLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.message(error))
     }
 
 
@@ -53,7 +68,7 @@ const Login = () => {
                     <p>Or login using</p>
                     <button onClick={handleGoogleSignin} type="button" className="px-8 my-2 py-3 font-semibold border rounded hover:bg-slate-500 dark:border-gray-100 dark:text-gray-100"><FaGoogle></FaGoogle> Google</button>
                     <br />
-                    <button type="button" className="px-8 py-3 font-semibold border rounded hover:bg-slate-500 dark:border-gray-100 dark:text-gray-100"><FaGithub></FaGithub>GitHub</button>
+                    <button onClick={handleGithubSignIn} type="button" className="px-8 py-3 font-semibold border rounded hover:bg-slate-500 dark:border-gray-100 dark:text-gray-100"><FaGithub></FaGithub>GitHub</button>
 
                 </div>
 
