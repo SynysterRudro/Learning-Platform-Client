@@ -11,7 +11,15 @@ const Header = () => {
             <div className="bg-gray-900 mb-48 lg:mb-0">
                 <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                     <div className="relative flex grid items-center grid-cols-2 lg:grid-cols-3">
+
                         <ul className="flex items-center hidden space-x-8 lg:flex">
+                            <Link className='text-white' to='/'>
+                                {user?.photoURL ?
+                                    <img className='rounded-full h-14' src={user?.photoURL} alt="" /> :
+                                    <>None</>
+                                }
+                                {user?.displayName}
+                            </Link>
                             <li>
                                 <Link
                                     to='/courses'
@@ -69,6 +77,7 @@ const Header = () => {
                             </span>
                         </Link>
                         <ul className="flex items-center hidden ml-auto space-x-8 lg:flex">
+
                             <li>
                                 <Link
                                     to='/login'
