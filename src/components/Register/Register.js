@@ -1,12 +1,13 @@
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
     const { emailPasswordSignUp } = useContext(AuthContext);
     const navigate = useNavigate();
+    const [message, setMessage] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -26,7 +27,7 @@ const Register = () => {
                 console.log(user);
                 navigate('/');
             })
-            .catch(error => console.error(error))
+            .catch(error => setMessage(error.message))
     }
 
     return (
@@ -56,6 +57,8 @@ const Register = () => {
                             </div>
 
                             <button type="submit" className="w-full py-2 font-semibold rounded dark:bg-violet-400 hover:bg-violet-300 dark:text-gray-900">Sign Up</button>
+                            <p>Have an account? <Link className='text-blue-600' to='/login'>Login</Link></p>
+                            <p>{message}</p>
 
                         </form>
                     </div>

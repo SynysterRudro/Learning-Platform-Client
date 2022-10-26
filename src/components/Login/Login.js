@@ -1,5 +1,5 @@
 
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
@@ -11,6 +11,8 @@ const githubProvider = new GithubAuthProvider();
 
 const Login = () => {
     const navigate = useNavigate();
+    const [message, setMessage] = useState('');
+
 
     const { provideLogin, githubLogin, emailPasswordLogIn } = useContext(AuthContext);
 
@@ -32,7 +34,7 @@ const Login = () => {
                 console.log(user);
                 navigate('/');
             })
-            .catch(error => console.error(error))
+            .catch(error => setMessage(error.message))
     }
 
 
@@ -64,9 +66,7 @@ const Login = () => {
                 <div className="w-full px-6 py-16 rounded-md sm:px-12 md:px-16 xl:col-span-2 dark:bg-gray-900">
                     <span className="block mb-2 dark:text-violet-400">Learn with pleasure</span>
                     <h1 className="text-5xl font-extrabold dark:text-gray-50">CSE Raven</h1>
-                    <p className="my-8">
-                        SignIn First
-                    </p>
+
                     <form onSubmit={handleSubmit} className="self-stretch space-y-3 ng-untouched ng-pristine ng-valid">
 
                         <div>
@@ -79,7 +79,8 @@ const Login = () => {
                         </div>
 
                         <button type="submit" className="w-full py-2 font-semibold rounded dark:bg-violet-400 hover:bg-violet-300 dark:text-gray-900">Sign In</button>
-                        <p>Need an account?<Link to='/register' className='text-blue-800 underline'>Register</Link> instead</p>
+                        <p>Need an account?<Link to='/register' className='text-blue-800 underline'>Register</Link> instead </p>
+                        <p>{message}</p>
                     </form>
                 </div>
                 <div>

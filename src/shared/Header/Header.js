@@ -27,7 +27,6 @@ const Header = () => {
                                     :
                                     <></>
                                 }
-                                {user?.displayName}
 
                             </Link>
                             <li>
