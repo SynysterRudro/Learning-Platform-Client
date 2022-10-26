@@ -23,7 +23,8 @@ const Header = () => {
                         <ul className="flex items-center hidden space-x-8 lg:flex">
                             <Link className='text-white' to='/'>
                                 {user?.photoURL ?
-                                    <img className='rounded-full h-14' src={user?.photoURL} alt="" /> :
+                                    <img title='user profile picture' className='rounded-full h-14' src={user?.photoURL} alt="" />
+                                    :
                                     <></>
                                 }
                                 {user?.displayName}
@@ -87,7 +88,18 @@ const Header = () => {
                         </Link>
 
 
+
+
                         <div >
+                            <label className="inline-flex m-2 items-center space-x-4 cursor-pointer dark:text-gray-100">
+                                <span>Dark Mode</span>
+                                <span className="relative">
+                                    <input id="Toggle1" type="checkbox" className="hidden peer" />
+                                    <div className="w-10 h-6 rounded-full shadow-inner dark:bg-gray-400 peer-checked:dark:bg-violet-400"></div>
+                                    <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-800"></div>
+                                </span>
+                            </label>
+
                             {user?.uid ?
                                 <>
                                     <Button className='bg-teal-600 hover:bg-teal-500 text-white p-2 rounded-md mx-2' onClick={handleLogout}>Logout</Button>
