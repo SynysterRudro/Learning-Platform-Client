@@ -15,3 +15,15 @@ Hosted in Firebase -> [CSE Raven]
 * User can login using Google or Github
 * User can also register their id using emails and passwords
 * There is a blog section where they can read about frequently asked questions
+
+## Technologies
+
+Here we used
+
+* React js,
+* firebase
+* tailwind
+* mambaui,kitwind, react to pdf
+* node js
+* react icon 
+* react router etc.
