@@ -141,7 +141,7 @@ const Header = () => {
                                         <div className="flex items-center justify-between mb-4">
                                             <div>
                                                 <Link
-                                                    href="/"
+                                                    to="/"
                                                     aria-label="Company"
                                                     title="Company"
                                                     className="inline-flex items-center"
@@ -162,7 +162,7 @@ const Header = () => {
                                                         <rect x="14" y="11" width="7" height="12" />
                                                     </svg>
                                                     <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                                                        Company
+                                                        CSE Raven
                                                     </span>
                                                 </Link>
                                             </div>
@@ -186,37 +186,37 @@ const Header = () => {
                                             <ul className="space-y-4">
                                                 <li>
                                                     <Link
-                                                        href="/"
+                                                        to="/"
                                                         aria-label="Our product"
                                                         title="Our product"
                                                         className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
                                                     >
-                                                        Product
+                                                        Home
                                                     </Link>
                                                 </li>
                                                 <li>
                                                     <Link
-                                                        href="/"
+                                                        to="/courses"
                                                         aria-label="Our product"
                                                         title="Our product"
                                                         className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
                                                     >
-                                                        Features
+                                                        Courses
                                                     </Link>
                                                 </li>
                                                 <li>
                                                     <Link
-                                                        href="/"
+                                                        to="/blogs"
                                                         aria-label="Product pricing"
                                                         title="Product pricing"
                                                         className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
                                                     >
-                                                        Pricing
+                                                        Blogs
                                                     </Link>
                                                 </li>
                                                 <li>
                                                     <Link
-                                                        href="/"
+                                                        to="/"
                                                         aria-label="Sign in"
                                                         title="Sign in"
                                                         className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"

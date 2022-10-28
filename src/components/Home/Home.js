@@ -3,63 +3,21 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
-        <div>
-            <div className="relative bg-purple-700">
-                <div className="absolute inset-x-0 bottom-0">
-                    <svg
-                        viewBox="0 0 224 12"
-                        fill="currentColor"
-                        className="w-full -mb-1 text-white"
-                        preserveAspectRatio="none"
-                    >
-                        <path d="M0,0 C48.8902582,6.27314026 86.2235915,9.40971039 112,9.40971039 C137.776408,9.40971039 175.109742,6.27314026 224,0 L224,12.0441132 L0,12.0441132 L0,0 Z" />
-                    </svg>
-                </div>
-                <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-                    <div className="relative max-w-2xl sm:mx-auto sm:max-w-xl md:max-w-2xl sm:text-center">
-                        <h2 className="mb-6 font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
-                            There is no alternative
-                            <br className="hidden md:block" />
-                            then to work{' '}
-                            <span className="relative inline-block px-2">
-                                <div className="absolute inset-0 transform -skew-x-12 bg-teal-400 p-6" />
-                                <span className="relative text-teal-900">hard</span>
-                            </span>
-                        </h2>
-                        <p className="mb-6 text-base text-indigo-100 md:text-lg">
-                            This is a simple tutorial based course for students who want to study subjects of CSE. Here, we initially provided just 6 corses but in future the number of courses will be increased as well as will update the course plan too.
-                        </p>
-                        <div className="w-full mb-4 md:flex-row md:px-16">
-
-                            <Link
-                                to='/courses'
-                                className="inline-flex items-center justify-center w-full h-12 px-6 font-semibold tracking-wide text-teal-900 transition duration-200 rounded shadow-md md:w-auto hover:text-deep-purple-900 bg-teal-400 hover:bg-teal-700 focus:shadow-outline focus:outline-none"
-                            >
-                                Courses
-                            </Link>
-                        </div>
-                        <p className="max-w-md mb-10 text-xs tracking-wide text-indigo-100 sm:text-sm sm:mx-auto md:mb-16">
-                            Thank your for supporting us.
-                        </p>
-                        <a
-                            href="/"
-                            aria-label="Scroll down"
-                            className="flex items-center justify-center w-10 h-10 mx-auto text-white duration-300 transform border border-gray-400 rounded-full hover:text-teal-accent-400 hover:border-teal-accent-400 hover:shadow hover:scale-110"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="12"
-                                height="12"
-                                viewBox="0 0 12 12"
-                                fill="currentColor"
-                            >
-                                <path d="M10.293,3.293,6,7.586,1.707,3.293A1,1,0,0,0,.293,4.707l5,5a1,1,0,0,0,1.414,0l5-5a1,1,0,1,0-1.414-1.414Z" />
-                            </svg>
-                        </a>
-                    </div>
+        <section className="dark:bg-gray-800 dark:text-gray-100">
+            <div className="container mx-auto flex flex-col items-center px-4 py-16 text-center md:py-32 md:px-10 lg:px-32 xl:max-w-3xl">
+                <h1 className="text-4xl font-bold leading-none sm:text-5xl">A learning website
+                    <span className="dark:text-violet-400"> for those who has intereset in </span>CSE
+                </h1>
+                <div className="flex flex-wrap justify-center my-5">
+                    <Link to='/courses'>
+                        <button className="px-8 py-3 m-2 text-lg font-semibold rounded dark:bg-violet-400 dark:text-gray-900">Courses</button>
+                    </Link>
+                    <Link to='/blogs'>
+                        <button className="px-8 py-3 m-2 text-lg border rounded dark:text-gray-50 dark:border-gray-700">Blogs</button>
+                    </Link>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 
