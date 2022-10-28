@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import CheckOut from "../CheckOut/CheckOut";
 import About from "../components/About/About";
 import Blogs from "../components/Blogs/Blogs";
+import CourseDetails from "../components/CourseDetails/CourseDetails";
 import Courses from "../components/Courses/Courses";
 import Error from "../components/Error/Error";
 import Faq from "../components/Faq/Faq";
@@ -35,7 +36,8 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/courses/:id',
-                element: <SingleCourse></SingleCourse>
+                element: <CourseDetails></CourseDetails>,
+                loader: ({ params }) => fetch(`https://learning-platform-server-synysterrudro.vercel.app/courses/${params.id}`)
             },
             {
                 path: '/faq',
@@ -50,8 +52,13 @@ export const router = createBrowserRouter([
                 element: <About></About>
             },
             {
-                path: '/checkout',
-                element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>
+                path: '/course-details',
+                element: <CourseDetails></CourseDetails>
+            },
+            {
+                path: '/checkout/:id',
+                element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://learning-platform-server-synysterrudro.vercel.app/courses/${params.id}`)
             }
         ]
     },

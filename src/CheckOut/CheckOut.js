@@ -1,15 +1,21 @@
 import React from 'react';
+import { useContext } from 'react';
+import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
 
 const CheckOut = () => {
+    const course = useLoaderData();
+    const { id, name } = course;
+    const { user } = useContext(AuthContext);
     return (
         <div>
             <h1 className='text-4xl mb-2'>Checkout successful</h1>
             <div>
                 <div className="flex flex-col max-w-xl p-8 shadow-sm rounded-xl lg:p-12 dark:bg-gray-900 dark:text-gray-100">
                     <div className="flex flex-col items-center w-full">
-                        <h2 className="text-3xl font-semibold text-center">Your opinion matters!</h2>
+                        <h2 className="text-3xl font-semibold text-center">Successfully purchased- {id} {name}</h2>
                         <div className="flex flex-col items-center py-6 space-y-3">
-                            <span className="text-center">How was your experience?</span>
+                            <span className="text-center">{user?.uid ? user.displayName : <p>Name not provided</p>}</span>
                             <div className="flex space-x-3">
                                 <button type="button" title="Rate 1 stars" aria-label="Rate 1 stars">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-10 h-10 dark:text-yellow-500">

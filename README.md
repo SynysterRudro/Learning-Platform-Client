@@ -4,7 +4,7 @@ A learning platform for CSE students
 
 
 ## Live Link
-Hosted in Firebase -> [CSE Raven]
+Hosted in Firebase -> [CSE Raven] - https://cse-ravens-learning-site.web.app/courses
 
 
  ## Features and functionalities of this project
